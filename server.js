@@ -19,6 +19,11 @@ http.createServer(app).listen(app.get('port'), function(){
 });
 
 
-app.get("/", function(req,res){
-	res.render('index')
+app.get("/", function(err,req,res){
+  if(err){
+    res.send(err)
+  }
+  else{
+   res.render('index')
+  }
 })
